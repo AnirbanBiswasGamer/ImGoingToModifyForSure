@@ -1,0 +1,32 @@
+{
+  "appId": "com.ytify.app",
+  "productName": "Ytify",
+  "directories": {
+    "output": "../../release/linux",
+    "buildResources": "../../build-resources"
+  },
+  "files": [
+    "../../dist/**/*",
+    "../../electron/**/*",
+    "../../package.json"
+  ],
+  "extraResources": [
+    {
+      "from": "../../dist",
+      "to": "dist"
+    }
+  ],
+  "linux": {
+    "target": ["AppImage", "deb"],
+    "icon": "../../build-resources/icon.png",
+    "category": "Audio",
+    "artifactName": "${productName}-${version}.${ext}"
+  },
+  "deb": {
+    "depends": ["libasound2"]
+  },
+  "asar": true,
+  "asarUnpack": [
+    "node_modules/**/*.node"
+  ]
+} 

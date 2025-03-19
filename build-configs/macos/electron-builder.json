@@ -1,0 +1,43 @@
+{
+  "appId": "com.ytify.app",
+  "productName": "Ytify",
+  "directories": {
+    "output": "../../release/macos",
+    "buildResources": "../../build-resources"
+  },
+  "files": [
+    "../../dist/**/*",
+    "../../electron/**/*",
+    "../../package.json"
+  ],
+  "extraResources": [
+    {
+      "from": "../../dist",
+      "to": "dist"
+    }
+  ],
+  "mac": {
+    "target": ["dmg", "zip"],
+    "icon": "../../build-resources/icon.icns",
+    "category": "public.app-category.music",
+    "artifactName": "${productName}-${version}.${ext}"
+  },
+  "dmg": {
+    "contents": [
+      {
+        "x": 130,
+        "y": 220
+      },
+      {
+        "x": 410,
+        "y": 220,
+        "type": "file",
+        "path": "/Applications"
+      }
+    ]
+  },
+  "asar": true,
+  "asarUnpack": [
+    "node_modules/**/*.node"
+  ]
+} 
